@@ -98,7 +98,7 @@ public class PartnerDataAccessService implements PartnerDao {
 	}
 
 	@Override
-	public int updatePartner(String id, Partner partner) throws PartnerNotFoundException, InternalErrorException {
+	public int updatePartner(Partner partner) throws PartnerNotFoundException, InternalErrorException {
 		String query = "UPDATE PARTNER SET companyName=?, ref=?, locale=?, expires=? WHERE id = ?";
 		try {
 			int row = jdbcTemplate.update(query, partner.getCompanyName(), partner.getRef(),

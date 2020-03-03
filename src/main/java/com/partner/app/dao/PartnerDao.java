@@ -60,12 +60,11 @@ public interface PartnerDao {
 	
 	/**
 	 * Updates the information of a partner.
-	 * @param id ID of the partner.
 	 * @param partner New data of the partner.
 	 * @return returns the number 1 if the update is correct.
 	 * @throws PartnerNotFoundException There is no partner with the ID.
 	 * @throws InternalErrorException Error with the database update.
 	 */
-	int updatePartner(String id, Partner partner) throws PartnerNotFoundException, InternalErrorException;
+	int updatePartner(Partner partner) throws PartnerNotFoundException, InternalErrorException;
 	
 }

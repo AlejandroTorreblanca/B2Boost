@@ -123,7 +123,7 @@ public class PartnerController {
 			Partner p= partnerService.getPartner(id);
 			return p;
 		} catch (PartnerNotFoundException e) {
-			String error="Actor with ID="+id+" not found in the data base.";
+			String error="Partner with ID="+id+" not found in the data base.";
 			throw new ResponseStatusException(
 			          HttpStatus.NOT_FOUND, error, e);
 		} catch (InternalErrorException e) {
@@ -143,7 +143,7 @@ public class PartnerController {
 		try {
 			partnerService.deletePartner(id);
 		} catch (PartnerNotFoundException e) {
-			String error="Actor with ID="+id+" not found in the data base.";
+			String error="Partner with ID="+id+" not found in the data base.";
 			throw new ResponseStatusException(
 			          HttpStatus.NOT_FOUND, error, e);
 		} catch (InternalErrorException e) {
@@ -159,12 +159,13 @@ public class PartnerController {
 	 * @param partner New information of the partner.
 	 */
 	@PutMapping(path = "{id}")
-	public Partner updatePartner(@PathVariable("id") String id, @Valid @NonNull @RequestBody Partner partner) {
+	public Partner updatePartner(@PathVariable("id") long id, @Valid @NonNull @RequestBody Partner partner) {
 		try {
-			partnerService.updatePartner(id, partner);
+			partner.setId(id);
+			partnerService.updatePartner(partner);
 			return partner;
 		} catch (PartnerNotFoundException e) {
-			String error="Actor with ID="+id+" not found in the data base.";
+			String error="Partner with ID="+id+" not found in the data base.";
 			throw new ResponseStatusException(
 			          HttpStatus.NOT_FOUND, error, e);
 		} catch (InternalErrorException e) {
