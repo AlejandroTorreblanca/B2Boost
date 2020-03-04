@@ -53,7 +53,13 @@ public class Partner {
 		this.id = id;
 	}
 
-
+	/**
+	 * Sets the company's name of the partner
+	 * @param name New name
+	 */
+	public void setCompanyName(String name) {
+		this.companyName = name;
+	}
 
 	/**
 	 * Gets the id of the partner.

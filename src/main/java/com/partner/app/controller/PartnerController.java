@@ -36,7 +36,12 @@ import com.partner.app.service.PartnerService;
 @RestController
 public class PartnerController {
 	
-	public final PartnerService partnerService;
+	public PartnerController() {
+
+	}
+	
+	@Autowired
+	public PartnerService partnerService;
 
 	/**
 	 * Constructor of the class PartnerController
